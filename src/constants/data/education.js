@@ -23,7 +23,7 @@ export const educationData = [
   },
   {
     institution: 'Kavi Rabrindranath Tagore High School',
-    degree: 'Secondary (X)',
+    degree: 'Secondary School Certificate (X)',
     duration: '2020',
     website: '',
     percentage: '91.60 %',
