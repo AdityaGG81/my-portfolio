@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: OG_IMAGE_URL,
-        width: 1200,
-        height: 630,
+        width: 800,
+        height: 800,
       },
     ],
     locale: "en_IN",

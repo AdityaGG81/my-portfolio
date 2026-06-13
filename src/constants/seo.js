@@ -69,7 +69,7 @@ export const OG_TITLE = META_TITLE
 export const OG_DESCRIPTION = META_DESCRIPTION
 
 /** Open Graph image absolute URL. @type {string} */
-export const OG_IMAGE_URL = `${SITE_URL}/og-image.jpg`
+export const OG_IMAGE_URL = `${SITE_URL}/profile.webp`
 
 /** Alt text for OG / Twitter preview images. @type {string} */
 export const OG_IMAGE_ALT =
