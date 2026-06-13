@@ -2,7 +2,7 @@
  * Canonical site URL (no trailing slash).
  * @type {string}
  */
-export const SITE_URL = 'https://adityaghorpade.tech' // Update this later if needed
+export const SITE_URL = 'https://portfolio.adityaghorpade.in' // Update this later if needed
 
 /**
  * Primary document path used for canonical and Open Graph URLs.

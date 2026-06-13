@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: META_TITLE,
     description: META_DESCRIPTION,
-    url: "https://adityaghorpade.tech",
+    url: "https://portfolio.adityaghorpade.in",
     siteName: "Aditya Ghorpade Portfolio",
     images: [
       {
