@@ -1,0 +1,43 @@
+/**
+ * Self-hosted fonts from src/assets/fonts (no Google Fonts CDN).
+ */
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBMPlexMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("../assets/fonts/IBMPlexMono-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../assets/fonts/Gilroy-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Syne";
+  src: url("../assets/fonts/Syne-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Syne";
+  src: url("../assets/fonts/Syne-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}

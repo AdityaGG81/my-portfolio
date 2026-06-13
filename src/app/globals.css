@@ -1,26 +1,168 @@
+@import "../styles/fonts.css";
 @import "tailwindcss";
+@plugin "tailwindcss-animate";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Define the custom Tailwind v4 theme */
+@theme {
+  --color-ink: hsl(var(--ink));
+  --color-paper: hsl(var(--paper));
+  --color-surface: hsl(var(--surface));
+  --color-signal: hsl(var(--signal));
+  --color-signal-deep: hsl(var(--signal-deep));
+  --color-border: hsl(var(--border));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  
+  --font-display: "Syne", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --ink: 222 47% 11%;
+    --paper: 40 18% 94%;
+    --surface: 40 25% 99%;
+    --signal: 22 90% 48%;
+    --signal-deep: 18 88% 38%;
+    --border: 35 14% 82%;
+    --grid-line: 220 14% 88%;
+    --muted: 38 14% 91%;
+    --muted-foreground: 220 12% 32%;
+  }
+
+  .content {
+    @apply mx-auto max-w-6xl w-full px-3 sm:px-5 md:w-[92%] lg:max-w-7xl;
+  }
+
+  .site-shell {
+    @apply relative min-h-screen;
+  }
+
+  .site-shell::before {
+    content: "";
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.45;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+  }
+
+  .site-shell > * {
+    position: relative;
+    z-index: 1;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: hsl(var(--paper));
+  background-image: linear-gradient(
+    165deg,
+    hsl(var(--paper)) 0%,
+    hsl(38 22% 91%) 45%,
+    hsl(200 12% 92%) 100%
+  );
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Gilroy", "Syne", system-ui, sans-serif;
+  overflow-x: hidden;
+  color: hsl(var(--ink));
+}
+
+.svg-icon {
+  width: 45.5px;
+  height: 33.5px;
+}
+
+@media (max-width: 768px) {
+  .svg-icon {
+    width: 30px;
+    height: 22px;
+  }
+}
+
+*::selection {
+  background: hsl(var(--signal-deep));
+  color: hsl(40 25% 99%);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@keyframes nav-in {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .surface-card {
+    border-radius: 1rem;
+    border: 1px solid hsl(var(--border));
+    background-color: hsl(var(--surface));
+    box-shadow: 6px 6px 0 hsl(var(--ink) / 0.08);
+    transition-property: box-shadow;
+    transition-duration: 300ms;
+  }
+
+  .surface-card:hover {
+    box-shadow: 8px 8px 0 hsl(var(--signal) / 0.22);
+  }
+
+  .pill-signal {
+    @apply inline-flex items-center rounded-full bg-[hsl(var(--ink))] px-4 py-1 text-sm font-semibold text-[hsl(var(--surface))] shadow-[3px_3px_0_hsl(var(--signal)/0.55)];
+  }
+
+  .chip-tech {
+    @apply rounded-lg border border-border bg-paper px-3 py-1 font-mono text-xs font-medium text-muted-foreground transition-colors hover:border-signal-deep hover:text-ink;
+  }
+
+  .link-external {
+    @apply text-[hsl(var(--signal-deep))] underline decoration-dotted underline-offset-4 transition-colors hover:text-[hsl(var(--ink))];
+  }
+
+  .hero-grid-bg {
+    background-image: linear-gradient(hsl(var(--grid-line)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-line)) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 75%);
+  }
+}
+
+.wrapper {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 15s linear infinite;
+}
+
+.marquee p {
+  display: inline-block;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
