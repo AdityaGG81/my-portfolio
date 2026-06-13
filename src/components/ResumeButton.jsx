@@ -1,11 +1,10 @@
 "use client";
 import { FolderOpenDot } from 'lucide-react'
-import { SITE_URL } from '../constants/seo'
-import { RESUME_PATH } from '../constants/urls'
+import { RESUME_DRIVE_URL } from '../constants/urls'
 
 /** Fixed mobile résumé link (no animation lib on critical path). */
 const ResumeButton = () => {
-  const resumeHref = `${SITE_URL}${RESUME_PATH}`
+  const resumeHref = RESUME_DRIVE_URL
 
   return (
     <a
