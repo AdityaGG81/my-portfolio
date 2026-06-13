@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: META_TITLE,
   description: META_DESCRIPTION,
   keywords: META_KEYWORDS,
+  icons: {
+    icon: '/ag_black.svg',
+  },
   authors: [{ name: PERSON_NAME }],
   openGraph: {
     title: META_TITLE,
